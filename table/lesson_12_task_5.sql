@@ -1,11 +1,6 @@
--- Создание таблицы "Студенты", если она не существует
-DO $$
-BEGIN
-    IF NOT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_name = 'студенты') THEN
-        CREATE TABLE студенты (
-            идентификатор SERIAL PRIMARY KEY,
-            имя VARCHAR(100) NOT NULL,
-            фамилия VARCHAR(100) NOT NULL
-        );
-    END IF;
-END $$;
+-- Этот код протестирован на PostgreSQL
+CREATE TABLE IF NOT EXISTS students (
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL
+);
