@@ -4,3 +4,5 @@ CREATE TABLE IF NOT EXISTS students (
     first_name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NOT NULL
 );
+ALTER TABLE students 
+ADD COLUMN IF NOT EXISTS exam_score INTEGER;
