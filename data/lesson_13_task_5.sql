@@ -3,4 +3,6 @@ INSERT INTO directions (id, name, min_score) VALUES
 (2, 'Право', 180),
 (3, 'Физика', 200)
 ON CONFLICT (id) DO NOTHING;
-SELECT * FROM directions
+UPDATE students 
+SET direction_id = (SELECT id FROM directions WHERE directions.name = students.direction)
+WHERE direction_id IS NULL;
